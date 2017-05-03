@@ -20,6 +20,10 @@ export default ['$stateProvider', '$urlRouterProvider', '$locationProvider', ($s
           url: '/algo1',
           template:'<algo1></algo1>'
         })
+        .state('algo2', {
+          url: '/algo2',
+          template:'<algo2></algo2>'
+        })
         .state('callback', {
             url: '/auth/callback/:token',
             template: '',
