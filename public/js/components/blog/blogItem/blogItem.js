@@ -35,8 +35,13 @@ let blogItem = {
                 PostsService.getById($stateParams.id).then((res) => {
                     // when this request receives response we affect response data to this controller variable post
                     this.post = res.data;
+
                     // save into initialPost a copy of this post (used for undo)
                     initialPost = angular.copy(this.post)
+                }).catch((err) => {
+                    let toastContent = `${err.data} !`
+                    Materialize.toast(toastContent, 4000, 'toast-error')
+                    $state.go('blog.list')
                 })
             }
         } else {
